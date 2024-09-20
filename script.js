@@ -25,10 +25,12 @@ function numberToWords(num) {
         "sextrigintillion", "septentrigintillion", "octotrigintillion", 
         "novemtrigintillion", "quadragintillion", "quinquadragintillion",
         "sexquadragintillion", "septenquadragintillion", "octoquadragintillion", 
-        "novemquadragintillion", "septuagintillion", "unseptuagintillion",
+        "novemquadragintillion", "sexagintillion", "unsexagintillion",  "tresexagintillion",
+        "quattoursexagintollion", "quinsexagintillion", "sexsexagintillion", "septensexagintillion", 
+        "octosexagintillion", "novemsexagintillion", "septuagintillion", "unseptuagintillion",
         "duoseptuagintillion", "treseptuagintillion", "quattuorseptuagintillion",
         "quinseptuagintillion", "sexseptuagintillion", "septenseptuagintillion",
-        "octoseptuagintillion", "novemseptuagintillion"
+        "octoseptuagintillion", "novemseptuagintillion", "octogintillion" 
     ];
     
     const words = [];
