@@ -2,21 +2,20 @@ function spellNumber() {
     const numberInput = document.getElementById('numberInput').value;
     const output = document.getElementById('output');
 
-    const sanitizedInput = numberInput.replace(/\D/g, ''); // Remove non-digit characters
-
-    const spelledOut = numberToWords(sanitizedInput);
+    const spelledOut = numberToWords(numberInput);
     output.textContent = spelledOut;
 }
 
-function numberToWords(num) {
-    // Check for exponent notation (e.g., 10^3)
-    const exponentMatch = num.match(/^(\d+)\^(\d+)$/);
-    if (exponentMatch) {
-        const base = exponentMatch[1];
-        const exponent = exponentMatch[2];
+function numberToWords(input) {
+    // Split input to check for exponent notation
+    const parts = input.split('^');
+    if (parts.length === 2) {
+        const base = parts[0];
+        const exponent = parts[1];
         return expandExponent(base, exponent);
     }
 
+    const num = input.replace(/\D/g, ''); // Remove non-digit characters
     if (num === "0") return "zero";
     if (!num) return "undefined"; // Handle empty input
 
