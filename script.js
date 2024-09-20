@@ -2,7 +2,6 @@ function spellNumber() {
     const numberInput = document.getElementById('numberInput').value;
     const output = document.getElementById('output');
 
-    // Remove any non-digit characters
     const sanitizedInput = numberInput.replace(/\D/g, '');
 
     const spelledOut = numberToWords(sanitizedInput);
@@ -21,14 +20,19 @@ function numberToWords(num) {
         "novemdecillion", "vigintillion", "unvigintillion", "duovigintillion", 
         "trevigintillion", "quattuorvigintillion", "quinvigintillion", 
         "sexavigintillion", "septenvigintillion", "octovigintillion", 
-        "novemvigintillion", "trigintillion", "untrigintillion", "duotrigintillion", "tretrigintillion",
-        "quattourtrigintillion", "quintrigintillion", "sextrigintillion", "septentrigintillion", "octotrigintillion", 
-        "novemtrigintillion", "quadragintillion"
+        "novemvigintillion", "trigintillion", "untrigintillion", "duotrigintillion", 
+        "tretrigintillion", "quattourtrigintillion", "quintrigintillion", 
+        "sextrigintillion", "septentrigintillion", "octotrigintillion", 
+        "novemtrigintillion", "quadragintillion", "quinquadragintillion",
+        "sexquadragintillion", "septenquadragintillion", "octoquadragintillion", 
+        "novemquadragintillion", "septuagintillion", "unseptuagintillion",
+        "duoseptuagintillion", "treseptuagintillion", "quattuorseptuagintillion",
+        "quinseptuagintillion", "sexseptuagintillion", "septenseptuagintillion",
+        "octoseptuagintillion", "novemseptuagintillion"
     ];
     
     const words = [];
 
-    // Split the number into groups of three digits
     const chunks = [];
     while (num.length > 0) {
         chunks.unshift(num.slice(-3));
