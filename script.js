@@ -8,8 +8,13 @@ function spellNumber() {
 function numberToWords(num) {
     if (num === "0") return "zero";
 
-    const units = ["", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion", 
-                   "sextillion", "septillion", "octillion", "nonillion", "decillion"];
+    const units = [
+        "", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion",
+        "sextillion", "septillion", "octillion", "nonillion", "decillion",
+        "undecillion", "duodecillion", "tredecillion", "quattuordecillion", 
+        "quindecillion", "sexadecillion", "septendecillion", "octodecillion", 
+        "novemdecillion", "vigintillion"
+    ];
     
     const words = [];
 
