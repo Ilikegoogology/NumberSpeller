@@ -1,12 +1,17 @@
 function spellNumber() {
     const numberInput = document.getElementById('numberInput').value;
     const output = document.getElementById('output');
-    const spelledOut = numberToWords(numberInput);
+    
+    // Remove any non-digit characters (optional)
+    const sanitizedInput = numberInput.replace(/\D/g, '');
+
+    const spelledOut = numberToWords(sanitizedInput);
     output.textContent = spelledOut;
 }
 
 function numberToWords(num) {
     if (num === "0") return "zero";
+    if (!num) return "undefined"; // Handle empty input
 
     const units = [
         "", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion",
@@ -28,7 +33,7 @@ function numberToWords(num) {
     chunks.forEach((chunk, index) => {
         const chunkValue = parseInt(chunk, 10);
         if (chunkValue > 0) {
-            words.push(threeDigitToWords(chunkValue) + " " + units[chunks.length - 1 - index]);
+            words.push(threeDigitToWords(chunkValue) + (units[chunks.length - 1 - index] ? " " + units[chunks.length - 1 - index] : ""));
         }
     });
 
@@ -40,6 +45,8 @@ function threeDigitToWords(num) {
                          "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", 
                          "seventeen", "eighteen", "nineteen"];
     const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+
+    if (num < 0 || num > 999) return "undefined"; // Handle out of range numbers
 
     let word = '';
 
