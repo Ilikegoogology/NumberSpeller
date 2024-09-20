@@ -2,13 +2,21 @@ function spellNumber() {
     const numberInput = document.getElementById('numberInput').value;
     const output = document.getElementById('output');
 
-    const sanitizedInput = numberInput.replace(/\D/g, '');
+    const sanitizedInput = numberInput.replace(/\D/g, ''); // Remove non-digit characters
 
     const spelledOut = numberToWords(sanitizedInput);
     output.textContent = spelledOut;
 }
 
 function numberToWords(num) {
+    // Check for exponent notation (e.g., 10^3)
+    const exponentMatch = num.match(/^(\d+)\^(\d+)$/);
+    if (exponentMatch) {
+        const base = exponentMatch[1];
+        const exponent = exponentMatch[2];
+        return expandExponent(base, exponent);
+    }
+
     if (num === "0") return "zero";
     if (!num) return "undefined"; // Handle empty input
 
@@ -26,21 +34,21 @@ function numberToWords(num) {
         "novemtrigintillion", "quadragintillion", "quinquadragintillion",
         "sexquadragintillion", "septenquadragintillion", "octoquadragintillion", 
         "novemquadragintillion", "sexagintillion", "unsexagintillion",  "tresexagintillion",
-        "quattoursexagintllion", "quinsexagintillion", "sexsexagintillion", "septensexagintillion", 
+        "quattoursexagintillion", "quinsexagintillion", "sexsexagintillion", "septensexagintillion", 
         "octosexagintillion", "novemsexagintillion", "septuagintillion", "unseptuagintillion",
         "duoseptuagintillion", "treseptuagintillion", "quattuorseptuagintillion",
         "quinseptuagintillion", "sexseptuagintillion", "septenseptuagintillion",
         "octoseptuagintillion", "novemseptuagintillion", "octogintillion", "unoctogintillion",
-        "duoctogintillion", "treoctogintillion", "quattouroctogintillion", "quinoctogintollion", 
+        "duoctogintillion", "treoctogintillion", "quattouroctogintillion", "quinoctogintillion", 
         "sexoctogintillion", "septenoctogintillion", "octoctogintillion", "novemoctogintillion", 
-        "nonagintillion", "unonagintillion", "duononaginillion", "trenonagintillion", "quattournonagintillion", 
+        "nonagintillion", "unonagintillion", "duononagintillion", "trenonagintillion", "quattournonagintillion", 
         "quinonagintillion", "sexnonagintillion", "septenonagintillion", "octononagintillion", "novemnonagintillion", 
         "centillion"
     ];
     
     const words = [];
-
     const chunks = [];
+    
     while (num.length > 0) {
         chunks.unshift(num.slice(-3));
         num = num.slice(0, -3);
@@ -59,6 +67,11 @@ function numberToWords(num) {
     });
 
     return words.join(' ').trim();
+}
+
+function expandExponent(base, exponent) {
+    const expandedValue = BigInt(base) ** BigInt(exponent);
+    return numberToWords(expandedValue.toString());
 }
 
 function threeDigitToWords(num) {
