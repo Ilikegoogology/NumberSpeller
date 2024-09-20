@@ -1,7 +1,7 @@
 function spellNumber() {
     const numberInput = document.getElementById('numberInput').value;
     const output = document.getElementById('output');
-    
+
     // Remove any non-digit characters (optional)
     const sanitizedInput = numberInput.replace(/\D/g, '');
 
@@ -18,7 +18,10 @@ function numberToWords(num) {
         "sextillion", "septillion", "octillion", "nonillion", "decillion",
         "undecillion", "duodecillion", "tredecillion", "quattuordecillion", 
         "quindecillion", "sexadecillion", "septendecillion", "octodecillion", 
-        "novemdecillion", "vigintillion"
+        "novemdecillion", "vigintillion", "unvigintillion", "duovigintillion", 
+        "trevigintillion", "quattuorvigintillion", "quinvigintillion", 
+        "sexavigintillion", "septenvigintillion", "octovigintillion", 
+        "novemvigintillion", "trigintillion"
     ];
     
     const words = [];
