@@ -2,7 +2,7 @@ function spellNumber() {
     const numberInput = document.getElementById('numberInput').value;
     const output = document.getElementById('output');
 
-    // Remove any non-digit characters (optional)
+    // Remove any non-digit characters
     const sanitizedInput = numberInput.replace(/\D/g, '');
 
     const spelledOut = numberToWords(sanitizedInput);
@@ -23,7 +23,7 @@ function numberToWords(num) {
         "sexavigintillion", "septenvigintillion", "octovigintillion", 
         "novemvigintillion", "trigintillion", "untrigintillion", "duotrigintillion", "tretrigintillion",
         "quattourtrigintillion", "quintrigintillion", "sextrigintillion", "septentrigintillion", "octotrigintillion", 
-        "novemtrigintillion", "quadragintillion", 
+        "novemtrigintillion", "quadragintillion"
     ];
     
     const words = [];
@@ -70,7 +70,7 @@ function threeDigitToWords(num) {
         num %= 10;
     }
 
-    if (num > 0) {
+    if (num > 0) { 
         word += underTwenty[num] + " ";
     }
 
