@@ -26,7 +26,7 @@ function numberToWords(num) {
         "novemtrigintillion", "quadragintillion", "quinquadragintillion",
         "sexquadragintillion", "septenquadragintillion", "octoquadragintillion", 
         "novemquadragintillion", "sexagintillion", "unsexagintillion",  "tresexagintillion",
-        "quattoursexagintollion", "quinsexagintillion", "sexsexagintillion", "septensexagintillion", 
+        "quattoursexagintllion", "quinsexagintillion", "sexsexagintillion", "septensexagintillion", 
         "octosexagintillion", "novemsexagintillion", "septuagintillion", "unseptuagintillion",
         "duoseptuagintillion", "treseptuagintillion", "quattuorseptuagintillion",
         "quinseptuagintillion", "sexseptuagintillion", "septenseptuagintillion",
