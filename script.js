@@ -36,7 +36,12 @@ function numberToWords(num) {
     chunks.forEach((chunk, index) => {
         const chunkValue = parseInt(chunk, 10);
         if (chunkValue > 0) {
-            words.push(threeDigitToWords(chunkValue) + (units[chunks.length - 1 - index] ? " " + units[chunks.length - 1 - index] : ""));
+            const chunkWords = threeDigitToWords(chunkValue);
+            if (units[chunks.length - 1 - index]) {
+                words.push(chunkWords + " " + units[chunks.length - 1 - index]);
+            } else {
+                words.push(chunkWords);
+            }
         }
     });
 
